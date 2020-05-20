@@ -1,22 +1,6 @@
-﻿@model CourseProject.Models.Request
-@{
-    Layout = null;
-}
+﻿<div class="p-4 text-center">
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <script src="~/vendor/jquery/dist/jquery.min.js"></script>
-    <title>Index</title>
-</head>
-<body>
-
-    @Model.Name<br />
-    @Model.Email<br />
-    @Model.Phone<br />
-    @Model.Message<br />
-
-</body>
-</html>
+    <h2>The course is going to be start soon</h2>
+    <h4>You are invited.</h4>
+    <a asp-action="AddRequest" class="btn btn-primary">Create A Request</a>
+</div>
