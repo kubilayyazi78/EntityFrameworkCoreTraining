@@ -43,5 +43,13 @@ namespace CourseProject.Controllers
             return View("Thanks",model);
         }
 
+        public IActionResult List()
+        {
+
+            
+
+            return View(_context.Requests);
+        }
+
     }
 }
