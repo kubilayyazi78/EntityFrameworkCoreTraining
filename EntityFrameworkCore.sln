@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.1145
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MiniProject", "MiniProject", "{8E6CCB6D-FA54-496C-B1D7-760D02D691F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseProject", "CourseProject\CourseProject.csproj", "{35FC8B65-C2A3-483E-AA12-D871DA2C39B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseProject", "CourseProject\CourseProject.csproj", "{35FC8B65-C2A3-483E-AA12-D871DA2C39B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Basics", "Database Basics", "{9FC58EBE-BFBE-4969-8720-6E1089ABBBE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
