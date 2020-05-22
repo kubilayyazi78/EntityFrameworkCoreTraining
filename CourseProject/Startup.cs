@@ -32,6 +32,7 @@ namespace CourseProject
                 options.UseSqlServer(Configuration.GetConnectionString("DataConnection"));
                 options.EnableSensitiveDataLogging(true);
             });
+            services.AddTransient<IRepository, EfRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
