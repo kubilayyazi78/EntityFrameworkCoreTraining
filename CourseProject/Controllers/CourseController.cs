@@ -22,6 +22,7 @@ namespace CourseProject.Controllers
 
            ViewBag.CourseCount = courses.Count();
             return View(courses);
+
         }
     }
 }
