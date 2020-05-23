@@ -18,7 +18,10 @@ namespace CourseProject.Controllers
          
         public IActionResult Index()
         {
-            return View();
+            var courses = _repository.Courses.Where(i => i.isActive == true).ToList();
+
+           ViewBag.CourseCount = courses.Count();
+            return View(courses);
         }
     }
 }

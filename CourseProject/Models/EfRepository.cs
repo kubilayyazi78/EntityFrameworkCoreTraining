@@ -15,8 +15,8 @@ namespace CourseProject.Models
             _context = context;
         }
 
-        public IEnumerable<Request> Requests => _context.Requests;
+        public IQueryable<Request> Requests => _context.Requests;
 
-        public IEnumerable<Course> Courses => _context.Courses;
+        public IQueryable<Course> Courses => _context.Courses;
     }
 }

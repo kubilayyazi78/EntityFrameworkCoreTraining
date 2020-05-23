@@ -7,7 +7,7 @@ namespace CourseProject.Models
 {
    public interface IRepository
     {
-        IEnumerable<Request> Requests { get; }
-        IEnumerable<Course> Courses { get; }
+        IQueryable<Request> Requests { get; }
+        IQueryable<Course> Courses { get; }
     }
 }
