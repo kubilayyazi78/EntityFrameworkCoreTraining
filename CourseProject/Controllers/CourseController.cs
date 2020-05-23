@@ -24,5 +24,20 @@ namespace CourseProject.Controllers
             return View(courses);
 
         }
+
+        public IActionResult Edit(int id)
+        {
+            return View(_repository.GetById(id));
+        }
+        [HttpPost]
+        public IActionResult Edit(Course  entity)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            return View();
+        }
     }
 }

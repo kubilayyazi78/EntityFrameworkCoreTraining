@@ -31,7 +31,9 @@ namespace CourseProject.Models
 
         public Course GetById(int courseId)
         {
-            throw new NotImplementedException();
+            return _context.Courses.Where(i => i.Id == courseId).FirstOrDefault();
+
+            //return _context.Courses.Find(courseId);
         }
 
         public IEnumerable<Course> GetCourses()
