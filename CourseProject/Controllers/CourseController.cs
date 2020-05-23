@@ -9,16 +9,16 @@ namespace CourseProject.Controllers
 {
     public class CourseController : Controller
     {
-        private IRepository _repository;
+        private ICourseRepository _repository;
 
-        public CourseController(IRepository repository)
+        public CourseController(ICourseRepository repository)
         {
             _repository = repository;
         }
          
         public IActionResult Index()
         {
-            var courses = _repository.Courses.Where(i => i.isActive == true).ToList();
+            var courses = _repository.GetCoursesActive(true);
 
            ViewBag.CourseCount = courses.Count();
             return View(courses);
