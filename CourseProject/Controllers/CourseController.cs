@@ -15,12 +15,16 @@ namespace CourseProject.Controllers
         {
             _repository = repository;
         }
-         
-        public IActionResult Index()
-        {
-            var courses = _repository.GetCoursesActive(true);
 
-           ViewBag.CourseCount = courses.Count();
+        public IActionResult Index(string name = null, decimal? price = null, string isActive = null)
+        {
+
+            Console.Clear();
+            var courses = _repository.GetCoursesByFilters(name,price, isActive);
+
+            ViewBag.Name = name;
+            ViewBag.isActive = isActive=="on" ? true:false;
+            ViewBag.Price = price;
             return View(courses);
 
         }
@@ -32,9 +36,9 @@ namespace CourseProject.Controllers
             return View(_repository.GetById(id));
         }
         [HttpPost]
-        public IActionResult Edit(Course entity,Course original)
+        public IActionResult Edit(Course entity, Course original)
         {
-            _repository.UpdateCourse(entity,original);
+            _repository.UpdateCourse(entity, original);
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
@@ -50,14 +54,14 @@ namespace CourseProject.Controllers
         public IActionResult Create()
         {
             ViewBag.ActionMode = "Create";
-            return View(nameof(Edit),new Course());
+            return View(nameof(Edit), new Course());
         }
 
         [HttpPost]
         public IActionResult Create(Course newCourse)
         {
-            
-            int id=_repository.CreateCourse(newCourse);
+
+            int id = _repository.CreateCourse(newCourse);
 
             Console.WriteLine("Id {0}", id);
 

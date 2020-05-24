@@ -57,6 +57,29 @@ namespace CourseProject.Models
             return _context.Courses.Where(i => i.isActive == isActive).ToList();
         }
 
+        public IEnumerable<Course> GetCoursesByFilters(string name = null, decimal? price = null, string isActive = null)
+        {
+            IQueryable<Course> query = _context.Courses;
+
+            if (name!=null)
+            {
+                query = query.Where(i => i.Name.ToLower().Contains(name.ToLower()));
+            }
+
+            if (price!=null)
+            {
+                query = query.Where(i => i.Price >= price);
+            }
+
+            if (isActive=="on")
+            {
+                query = query.Where(i => i.isActive == true);
+            }
+
+            return query.ToList();
+
+        }
+
         public void UpdateCourse(Course updateCourse, Course originalCourse = null)
         {
             //_context.Courses.Update(updateCourse);
