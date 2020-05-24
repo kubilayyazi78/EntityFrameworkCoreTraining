@@ -17,7 +17,7 @@ namespace CourseProject.Models
 
         IEnumerable<Course> GetCoursesActive(bool isActive);
 
-        void CreateCourse(Course newCourse);
+        int CreateCourse(Course newCourse);
 
         void UpdateCourse(Course updateCourse,Course originalCourse=null);
 

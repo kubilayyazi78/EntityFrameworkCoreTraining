@@ -27,6 +27,8 @@ namespace CourseProject.Controllers
 
         public IActionResult Edit(int id)
         {
+            ViewBag.ActionMode = "Edit";
+
             return View(_repository.GetById(id));
         }
         [HttpPost]
@@ -39,6 +41,23 @@ namespace CourseProject.Controllers
         public IActionResult Delete(int id)
         {
             return View();
+        }
+
+        public IActionResult Create()
+        {
+            ViewBag.ActionMode = "Create";
+            return View(nameof(Edit),new Course());
+        }
+
+        [HttpPost]
+        public IActionResult Create(Course newCourse)
+        {
+            
+            int id=_repository.CreateCourse(newCourse);
+
+            Console.WriteLine("Id {0}", id);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

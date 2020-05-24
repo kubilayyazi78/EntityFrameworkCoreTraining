@@ -20,9 +20,13 @@ namespace CourseProject.Models
 
         public IQueryable<Course> Courses => _context.Courses;
 
-        public void CreateCourse(Course newCourse)
+        public int CreateCourse(Course newCourse)
         {
-            throw new NotImplementedException();
+            _context.Courses.Add(newCourse);
+
+            _context.SaveChanges();
+
+            return newCourse.Id;
         }
 
         public void DeleteCourse(int courseId)
