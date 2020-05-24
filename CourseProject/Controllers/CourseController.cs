@@ -30,9 +30,10 @@ namespace CourseProject.Controllers
             return View(_repository.GetById(id));
         }
         [HttpPost]
-        public IActionResult Edit(Course  entity)
+        public IActionResult Edit(Course entity,Course original)
         {
-            return View();
+            _repository.UpdateCourse(entity,original);
+            return RedirectToAction(nameof(Index));
         }
         [HttpPost]
         public IActionResult Delete(int id)

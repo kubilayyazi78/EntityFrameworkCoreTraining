@@ -19,7 +19,7 @@ namespace CourseProject.Models
 
         void CreateCourse(Course newCourse);
 
-        void UpdateCourse(Course updateCourse);
+        void UpdateCourse(Course updateCourse,Course originalCourse=null);
 
         void DeleteCourse(int courseId);
     }

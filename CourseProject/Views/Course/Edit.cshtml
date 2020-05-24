@@ -5,6 +5,14 @@
 <div class="m-4">
     <div class="bg-success text-white p-4">Course</div>
     <form asp-action="Edit" method="post">
+
+        <input type="hidden" name="original.Id" value="@Model.Id" />
+        <input type="hidden" name="original.Name" value="@Model.Name" />
+        <input type="hidden" name="original.Description" value="@Model.Description" />
+        <input type="hidden" name="original.Price" value="@Model.Price" />
+        <input type="hidden" name="original.isActive" value="@Model.isActive.ToString()" />
+
+
         <div class="form-group">
             <label asp-for="Name"></label>
             <input asp-for="Name" class="form-control" />
@@ -17,9 +25,9 @@
             <label asp-for="Price"></label>
             <input asp-for="Price" class="form-control" />
         </div>
-        <div class="custom-control custom-checkbox mb-2" >
-            <input asp-for="isActive" class="custom-control-input"/>
-            <label  class="custom-control-label" asp-for="isActive"></label>
+        <div class="custom-control custom-checkbox mb-2">
+            <input asp-for="isActive" class="custom-control-input" />
+            <label class="custom-control-label" asp-for="isActive"></label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

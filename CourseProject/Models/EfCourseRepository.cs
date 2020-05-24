@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace CourseProject.Models
             _context = context;
         }
 
-      //  public IQueryable<Request> Requests => _context.Requests;
+        //  public IQueryable<Request> Requests => _context.Requests;
 
         public IQueryable<Course> Courses => _context.Courses;
 
@@ -46,9 +47,40 @@ namespace CourseProject.Models
             return _context.Courses.Where(i => i.isActive == isActive).ToList();
         }
 
-        public void UpdateCourse(Course updateCourse)
+        public void UpdateCourse(Course updateCourse, Course originalCourse = null)
         {
-            throw new NotImplementedException();
+            //_context.Courses.Update(updateCourse);
+            //_context.SaveChanges();
+
+            if (originalCourse == null)
+            {
+
+                originalCourse = _context.Courses.Find(updateCourse.Id);
+            }
+            else
+            {
+                _context.Courses.Attach(originalCourse);
+            }
+
+
+
+            originalCourse.Name = updateCourse.Name;
+            originalCourse.Description = updateCourse.Description;
+            originalCourse.Price = updateCourse.Price;
+            originalCourse.isActive = updateCourse.isActive;
+
+            EntityEntry entry = _context.Entry(originalCourse);
+
+            Console.WriteLine($"Entity State :  {entry.State}");
+            // Modifed, Uncanged,Added,Deleted,Detached
+
+            foreach (var property in new string[] { "Name", "Description", "Price", "isActive" })
+            {
+                Console.WriteLine($"{property} - old : {entry.OriginalValues[property]} new : {entry.CurrentValues[property]}");
+            }
+
+            _context.SaveChanges();
+
         }
     }
 }
