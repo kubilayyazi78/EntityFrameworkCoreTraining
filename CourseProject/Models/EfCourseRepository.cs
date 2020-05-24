@@ -31,7 +31,13 @@ namespace CourseProject.Models
 
         public void DeleteCourse(int courseId)
         {
-            throw new NotImplementedException();
+           // var entity = _context.Courses.Where(i => i.Id == courseId).FirstOrDefault();
+
+            _context.Courses.Remove(new Course() {
+                 Id=courseId
+            });
+
+            _context.SaveChanges();
         }
 
         public Course GetById(int courseId)

@@ -40,7 +40,11 @@ namespace CourseProject.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            return View();
+
+            Console.Clear();
+            _repository.DeleteCourse(id);
+
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Create()
