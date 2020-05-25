@@ -27,14 +27,27 @@ namespace CourseProject.Models
                         _context.Instructors.AddRange(Instructors);
                     }
 
-                    context.SaveChanges();
                 }
                 //if (context is IdendityContext)
                 //{
 
                 //}
 
+                if (context is UserContext)
+                {
+                    UserContext _userContext = context as UserContext;
+
+                    if (_userContext.Users.Count()==0)
+                    {
+                        _userContext.Users.AddRange(Users);
+                    }
+
+                }
+
             }
+
+
+            context.SaveChanges();
 
         }
 
@@ -56,6 +69,15 @@ namespace CourseProject.Models
             new Instructor(){ City="Fas", Name="Belo"},
             new Instructor(){ City="Makedon", Name="Alpi"},
             new Instructor(){ City="Karabük", Name="Mira"}
+        };
+
+        private static User[] Users =
+        {
+          new User(){ City="İstanbul", Email="deneme@hot.com", Password="123", UserName="belo"},
+          new User(){ City="Karabük", Email="den222eme@hot.com", Password="1234", UserName="mira"},
+          new User(){ City="Adıyaman", Email="denem022e@hot.com", Password="12302", UserName="berko"},
+          new User(){ City="Elazığ", Email="eee@hot.com", Password="123", UserName="elazig"},
+          new User(){ City="İzmir", Email="35@hot.com", Password="3535", UserName="gelsin"}
         };
     }
 }

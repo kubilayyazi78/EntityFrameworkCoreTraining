@@ -32,16 +32,24 @@ namespace CourseProject
                 options.UseSqlServer(Configuration.GetConnectionString("DataConnection"));
                 options.EnableSensitiveDataLogging(true);
             });
+            services.AddDbContext<UserContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("UserConnection"));
+                options.EnableSensitiveDataLogging(true);
+            });
             services.AddTransient<ICourseRepository, EfCourseRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,DataContext dataContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, DataContext dataContext,UserContext userContext)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 SeedDatabase.Seed(dataContext);
+
+                SeedDatabase.Seed(userContext);
             }
 
             //app.Run(async (context) =>
@@ -54,10 +62,11 @@ namespace CourseProject
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions()
             {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"node_modules")),RequestPath=new PathString("/vendor")
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"node_modules")),
+                RequestPath = new PathString("/vendor")
             });
             app.UseMvcWithDefaultRoute();// controller/action/?id
-           
+
         }
     }
 }
