@@ -17,5 +17,9 @@ namespace CourseProject.Models
         public decimal Price { get; set; }
 
         public bool isActive { get; set; }
+
+        // bir kursun bir eğitmeni olur "bir" kısmına navigation property ekliyoruz.
+
+        public Instructor Instructor { get; set; }
     }
 }
