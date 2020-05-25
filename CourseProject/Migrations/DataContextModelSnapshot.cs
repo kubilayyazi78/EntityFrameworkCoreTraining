@@ -24,8 +24,6 @@ namespace CourseProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Category");
-
                     b.Property<string>("Description");
 
                     b.Property<string>("Name");
