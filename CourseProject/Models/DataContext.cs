@@ -16,5 +16,7 @@ namespace CourseProject.Models
         public DbSet<Request> Requests { get; set; }
 
         public DbSet<Course> Courses { get; set; }
+
+        public DbSet<Instructor> Instructors  { get; set; }
     }
 }
