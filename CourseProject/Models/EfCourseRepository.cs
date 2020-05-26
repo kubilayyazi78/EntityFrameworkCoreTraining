@@ -32,11 +32,20 @@ namespace CourseProject.Models
 
         public void DeleteCourse(int courseId)
         {
-           // var entity = _context.Courses.Where(i => i.Id == courseId).FirstOrDefault();
+            // var entity = _context.Courses.Where(i => i.Id == courseId).FirstOrDefault();
 
-            _context.Courses.Remove(new Course() {
-                 Id=courseId
-            });
+            var entity = GetById(courseId);
+
+            //_context.Courses.Remove(new Course() {
+            //     Id=courseId
+            //});
+
+            _context.Courses.Remove(entity);
+
+            if (entity.Instructor != null)
+            {
+                _context.Remove(entity.Instructor);
+            }
 
             _context.SaveChanges();
         }
