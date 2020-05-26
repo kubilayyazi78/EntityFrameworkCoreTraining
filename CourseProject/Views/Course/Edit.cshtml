@@ -3,7 +3,7 @@
     ViewData["Title"] = ViewBag.ActionMode;
 }
 <div class="m-4">
-    <div class="bg-success text-white p-4">Course</div>
+
 
 
     <form asp-action="@(ViewBag.ActionMode)" method="post">
@@ -16,11 +16,15 @@
 
         <input type="hidden" name="original.Instructor.Id" value="@Model.Instructor?.Id" />
         <input type="hidden" name="original.Instructor.Name" value="@Model.Instructor?.Name" />
-        <input type="hidden" name="original.Instructor.City" value="@Model.Instructor?.City" />
 
 
         <div class="row">
             <div class="col-6">
+
+                <div class="bg-primary text-white p-2 mt-3">
+                    Course
+                </div>
+
                 <div class="form-group">
                     <label asp-for="Name"></label>
                     <input asp-for="Name" class="form-control" />
@@ -39,15 +43,42 @@
                 </div>
             </div>
             <div class="col-6">
+
+                <div class="bg-primary text-white p-2 mt-3">
+                    Instructor
+                </div>
+
                 <input type="hidden" name="Instructor.Id" />
                 <div class="form-group">
                     <label asp-for="Instructor.Name"></label>
                     <input asp-for="Instructor.Name" class="form-control" />
                 </div>
+
                 <div class="form-group">
-                    <label asp-for="Instructor.City"></label>
-                    <input asp-for="Instructor.City" class="form-control" />
+                    <label asp-for="Instructor.Contact.Email"></label>
+                    <input asp-for="Instructor.Contact.Email" class="form-control" />
                 </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Instructor.Contact.Phone"></label>
+                    <input asp-for="Instructor.Contact.Phone" class="form-control" />
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Instructor.Contact.Address.City"></label>
+                    <input asp-for="Instructor.Contact.Address.City" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Instructor.Contact.Address.Country"></label>
+                    <input asp-for="Instructor.Contact.Address.Country" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Instructor.Contact.Address.Text"></label>
+                    <input asp-for="Instructor.Contact.Address.Text" class="form-control" />
+                </div>
+
             </div>
         </div>
 

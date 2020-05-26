@@ -72,11 +72,11 @@ namespace CourseProject.Models
         }
         private static Instructor[] Instructors =
         {
-            new Instructor(){ City="İstanbul", Name="Kubilay"},
-            new Instructor(){ City="İstanbul", Name="Ahmet"},
-            new Instructor(){ City="Fas", Name="Belo"},
-            new Instructor(){ City="Makedon", Name="Alpi"},
-            new Instructor(){ City="Karabük", Name="Mira"}
+            new Instructor(){Name="Kubilay",Contact =new Contact(){ Email="a", Phone="1", Address=new Address(){City="a", Country="a", Text="a"} } },
+            new Instructor(){Name="Ahmet"},
+            new Instructor(){Name="Belo"},
+            new Instructor(){Name="Alpi"},
+            new Instructor(){Name="Mira"}
         };
 
         private static User[] Users =

@@ -52,7 +52,12 @@ namespace CourseProject.Models
 
         public Course GetById(int courseId)
         {
-            return _context.Courses.Include(i=>i.Instructor).Where(i => i.Id == courseId).FirstOrDefault();
+            return _context.Courses
+                .Include(i=>i.Instructor)
+                .ThenInclude(i=>i.Contact)
+                .ThenInclude(i => i.Address)
+                .Where(i => i.Id == courseId)
+                .FirstOrDefault();
 
             //return _context.Courses.Find(courseId);
         }
@@ -113,7 +118,6 @@ namespace CourseProject.Models
             originalCourse.isActive = updateCourse.isActive;
 
             originalCourse.Instructor.Name = updateCourse.Instructor.Name;
-            originalCourse.Instructor.City = updateCourse.Instructor.City;
 
 
             EntityEntry entry = _context.Entry(originalCourse);

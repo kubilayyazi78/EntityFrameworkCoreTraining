@@ -12,6 +12,6 @@ namespace CourseProject.Models
 
         public  string Name { get; set; }
 
-        public string City { get; set; }
+        public Contact Contact { get; set; }
     }
 }
