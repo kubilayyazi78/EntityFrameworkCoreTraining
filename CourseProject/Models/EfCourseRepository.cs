@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace CourseProject.Models
 
         public Course GetById(int courseId)
         {
-            return _context.Courses.Where(i => i.Id == courseId).FirstOrDefault();
+            return _context.Courses.Include(i=>i.Instructor).Where(i => i.Id == courseId).FirstOrDefault();
 
             //return _context.Courses.Find(courseId);
         }
@@ -76,7 +77,7 @@ namespace CourseProject.Models
                 query = query.Where(i => i.isActive == true);
             }
 
-            return query.ToList();
+            return query.Include(i=>i.Instructor).ToList();
 
         }
 

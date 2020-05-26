@@ -18,14 +18,16 @@ namespace CourseProject.Models
                 {
                     DataContext _context = context as DataContext;
 
+                    if (_context.Instructors.Count() == 0)
+                    {
+                        _context.Instructors.AddRange(Instructors);
+                    }
+
                     if (_context.Courses.Count() == 0)
                     {
                         _context.Courses.AddRange(Courses);
                     }
-                    if (_context.Instructors.Count()==0)
-                    {
-                        _context.Instructors.AddRange(Instructors);
-                    }
+                   
 
                 }
                 //if (context is IdendityContext)
@@ -37,7 +39,7 @@ namespace CourseProject.Models
                 {
                     UserContext _userContext = context as UserContext;
 
-                    if (_userContext.Users.Count()==0)
+                    if (_userContext.Users.Count() == 0)
                     {
                         _userContext.Users.AddRange(Users);
                     }
@@ -51,17 +53,23 @@ namespace CourseProject.Models
 
         }
 
-        private static Course[] Courses =
+        private static Course[] Courses
         {
-          new Course(){ Name="Css", Price=10,  Description="About css", isActive=true},
-          new Course(){ Name="html", Price=20,  Description="About html", isActive=true},
-          new Course(){ Name="js", Price=10,  Description="About js", isActive=false},
-          new Course(){ Name="cs", Price=100,  Description="About cs", isActive=false},
-          new Course(){ Name="c", Price=20,  Description="About c", isActive=true},
-          new Course(){ Name="react", Price=50,  Description="About react", isActive=true},
-          new Course(){ Name="angular", Price=5,  Description="About angular", isActive=false}
-        };
-
+            get
+            {
+                Course[] courses = new Course[]
+                   {
+                    new Course(){ Name="Css", Price=10,  Description="About css", isActive=true, Instructor=Instructors[0]},
+                    new Course(){ Name="html", Price=20,  Description="About html", isActive=true,Instructor=Instructors[1]},
+                    new Course(){ Name="js", Price=10,  Description="About js", isActive=false,Instructor=Instructors[2]},
+                     new Course(){ Name="cs", Price=100,  Description="About cs", isActive=false,Instructor=Instructors[3]},
+                    new Course(){ Name="c", Price=20,  Description="About c", isActive=true,Instructor=Instructors[0]},
+                     new Course(){ Name="react", Price=50,  Description="About react", isActive=true},
+                     new Course(){ Name="angular", Price=5,  Description="About angular", isActive=false}
+                   };
+                return courses;
+            }
+        }
         private static Instructor[] Instructors =
         {
             new Instructor(){ City="İstanbul", Name="Kubilay"},
