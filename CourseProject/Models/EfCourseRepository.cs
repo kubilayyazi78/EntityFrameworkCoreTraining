@@ -103,6 +103,10 @@ namespace CourseProject.Models
             originalCourse.Price = updateCourse.Price;
             originalCourse.isActive = updateCourse.isActive;
 
+            originalCourse.Instructor.Name = updateCourse.Instructor.Name;
+            originalCourse.Instructor.City = updateCourse.Instructor.City;
+
+
             EntityEntry entry = _context.Entry(originalCourse);
 
             Console.WriteLine($"Entity State :  {entry.State}");
