@@ -64,8 +64,8 @@ namespace CourseProject.Models
                     new Course(){ Name="js", Price=10,  Description="About js", isActive=false,Instructor=Instructors[2]},
                      new Course(){ Name="cs", Price=100,  Description="About cs", isActive=false,Instructor=Instructors[3]},
                     new Course(){ Name="c", Price=20,  Description="About c", isActive=true,Instructor=Instructors[0]},
-                     new Course(){ Name="react", Price=50,  Description="About react", isActive=true},
-                     new Course(){ Name="angular", Price=5,  Description="About angular", isActive=false}
+                     new Course(){ Name="react", Price=50,  Description="About react", isActive=true,Instructor=Instructors[0]},
+                     new Course(){ Name="angular", Price=5,  Description="About angular", isActive=false,Instructor=Instructors[4]}
                    };
                 return courses;
             }

@@ -20,8 +20,9 @@ namespace CourseProject.Models
 
         // bir kursun bir eğitmeni olur "bir" kısmına navigation property ekliyoruz.
         //lazy loading
-      //aynı işlem null olabilir   public int? InstructorId { get; set; }
+        //aynı işlem null olabilir   public int? InstructorId { get; set; }
 
+        public int InstructorId { get; set; }
         public  Instructor Instructor { get; set; }
 
 
