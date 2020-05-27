@@ -18,7 +18,21 @@ namespace CourseProject.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.InstructorEditId = TempData["InstructorEditId"];
             return View(_repository.GetAll());
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            TempData["InstructorEditId"] = id;
+            return View("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Instructor entity)
+        {
+            _repository.Update(entity);
+            return View("Index");
         }
     }
 }
