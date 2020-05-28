@@ -37,7 +37,7 @@ namespace CourseProject.Models
             //}
             //return instructors;
 
-            _context.Courses.Where(i => i.Instructor != null && i.isActive).Load();
+            _context.Courses.Where(i => i.Instructor != null ).Load();//&& i.isActive
 
             return _context.Instructors;
 
