@@ -6,9 +6,10 @@
 
     @foreach(var item in Model.Courses)
     {
-    <div class="row mb-2">
-        <input type="hidden" name="Courses[@counter].Id" value="@item.Id"/>
-        <input type="hidden" name="Courses[@counter].isActive" @(Html.Raw(item.isActive?"value=\"true\"":"value=\"false\""))/>
+    <div class="row my-2">
+        <input type="hidden" name="Courses[@counter].Id" value="@item.Id" />
+        <input type="hidden" name="Courses[@counter].Description" value="@item.Description" />
+        <input type="hidden" name="Courses[@counter].isActive" @(Html.Raw(item.isActive ? "value=\"true\"" : "value=\"false\"")) />
         <div class="col">
             <input type="text" class="form-control" name="Courses[@counter].Name" value="@item.Name" />
         </div>

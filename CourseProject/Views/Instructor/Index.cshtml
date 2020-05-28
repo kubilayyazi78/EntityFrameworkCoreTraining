@@ -12,10 +12,11 @@
     {
         <div class="bg-primary text-white p-2 mt-3 text-center">
             @item.Name
-            <a asp-action="Edit" asp-route-id="@item.Id" class="btm btm-warning btn-sm">
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
                 Edit
             </a>
         </div>
+        
 
         @if (item.Courses == null || item.Courses.Count() == 0)
         {

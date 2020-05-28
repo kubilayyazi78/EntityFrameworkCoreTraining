@@ -25,14 +25,14 @@ namespace CourseProject.Controllers
         public IActionResult Edit(int id)
         {
             TempData["InstructorEditId"] = id;
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Edit(Instructor entity)
         {
             _repository.Update(entity);
-            return View("Index");
+            return RedirectToAction("Index");
         }
     }
 }
