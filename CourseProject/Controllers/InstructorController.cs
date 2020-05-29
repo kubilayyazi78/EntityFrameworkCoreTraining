@@ -10,10 +10,12 @@ namespace CourseProject.Controllers
     public class InstructorController : Controller
     {
         private IInstructorRepository _repository;
+        private ICourseRepository _courseRepository;
 
-        public InstructorController(IInstructorRepository repository)
+        public InstructorController(IInstructorRepository repository, ICourseRepository courseRepository)
         {
             _repository = repository;
+            _courseRepository = courseRepository;
         }
 
         public IActionResult Index()
@@ -51,9 +53,9 @@ namespace CourseProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Change(Instructor entity)
+        public IActionResult Change(int id,Course[] courses)
         {
-            _repository.Update(entity);
+            _courseRepository.UpdateAll(id,courses);
             return RedirectToAction("Index");
         }
 

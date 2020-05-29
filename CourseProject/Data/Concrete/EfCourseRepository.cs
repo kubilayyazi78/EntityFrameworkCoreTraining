@@ -95,6 +95,12 @@ namespace CourseProject.Models
 
         }
 
+        public void UpdateAll(int id, Course[] courses)
+        {
+            _context.Courses.UpdateRange(courses.Where(i=>i.InstructorId!=id));
+            _context.SaveChanges();
+        }
+
         public void UpdateCourse(Course updateCourse, Course originalCourse = null)
         {
             //_context.Courses.Update(updateCourse);
