@@ -10,15 +10,18 @@
 
     @foreach (var item in Model)
     {
-    <div class="bg-primary text-white p-2 mt-3 text-center">
-        @item.Name
-        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
-            Edit
-        </a>
-        <a asp-action="Create" asp-route-id="@item.Id" class="btn btn-info btn-sm">
-            Create
-        </a>
-    </div>
+        <div class="bg-primary text-white p-2 mt-3 text-center">
+            @item.Name
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
+                Edit
+            </a>
+            <a asp-action="Create" asp-route-id="@item.Id" class="btn btn-info btn-sm">
+                Create
+            </a>
+            <a asp-action="Change" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                Change
+            </a>
+        </div>
 
 
         @if (item.Courses == null || item.Courses.Count() == 0)
@@ -29,6 +32,10 @@
         {
 
             @Html.Partial("InstructorEdit", item)
+        }
+        else if (ViewBag.InstructorChangeId == item.Id)
+        {
+            @Html.Partial("InstructorChange", (item,Model))
         }
         else
         {
@@ -45,9 +52,9 @@
                     </div>
                 </div>
             }
-            if (ViewBag.InstructorCreateId==item.Id)
+            if (ViewBag.InstructorCreateId == item.Id)
             {
-                @Html.Partial("InstructorCreate",item)
+                @Html.Partial("InstructorCreate", item)
             }
 
         }

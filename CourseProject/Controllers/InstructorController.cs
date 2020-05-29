@@ -20,6 +20,7 @@ namespace CourseProject.Controllers
         {
             ViewBag.InstructorEditId = TempData["InstructorEditId"];
             ViewBag.InstructorCreateId = TempData["InstructorCreateId"];
+            ViewBag.InstructorChangeId = TempData["InstructorChangeId"];
             return View(_repository.GetAll());
         }
         [HttpGet]
@@ -39,6 +40,20 @@ namespace CourseProject.Controllers
         public IActionResult Create(int id)
         {
             TempData["InstructorCreateId"] = id;
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Change(int id)
+        {
+            TempData["InstructorChangeId"] = id;
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Change(Instructor entity)
+        {
+            _repository.Update(entity);
             return RedirectToAction("Index");
         }
 
