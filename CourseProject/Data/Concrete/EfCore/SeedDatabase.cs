@@ -27,7 +27,12 @@ namespace CourseProject.Models
                     {
                         _context.Courses.AddRange(Courses);
                     }
-                   
+
+                    if (_context.Students.Count() == 0)
+                    {
+                        _context.Students.AddRange(Students);
+                    }
+
 
                 }
                 //if (context is IdendityContext)
@@ -70,6 +75,26 @@ namespace CourseProject.Models
                 return courses;
             }
         }
+
+
+
+        private static Student[] Students
+        {
+            get
+            {
+                Student[] students = new Student[]
+                   {
+                    new Student(){ Name="Kubilay" },
+                       new Student(){ Name="Berk" , },
+                          new Student(){ Name="Alper" },
+                             new Student(){ Name="Miray" },
+
+                   };
+                return students;
+            }
+        }
+
+
         private static Instructor[] Instructors =
         {
             new Instructor(){Name="Kubilay",Contact =new Contact(){ Email="a", Phone="1", Address=new Address(){City="a", Country="a", Text="a"} } },

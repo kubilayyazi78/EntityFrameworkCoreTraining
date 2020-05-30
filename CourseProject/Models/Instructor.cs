@@ -15,5 +15,7 @@ namespace CourseProject.Models
         public IEnumerable<Course> Courses { get; set; }
 
         public Contact Contact { get; set; }
+
+
     }
 }

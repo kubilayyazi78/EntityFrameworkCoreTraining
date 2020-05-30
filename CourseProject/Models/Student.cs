@@ -12,5 +12,7 @@ namespace CourseProject.Models
         public string Name { get; set; }
 
         public StudentAddress Address { get; set; }
+
+        public IEnumerable<StudentCourse> StudentCourses { get; set; }//n-n
     }
 }

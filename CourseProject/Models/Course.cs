@@ -26,5 +26,8 @@ namespace CourseProject.Models
         public  Instructor Instructor { get; set; }
 
 
+        public  IEnumerable<StudentCourse> StudentCourses { get; set; }//n-n
+
+
     }
 }
