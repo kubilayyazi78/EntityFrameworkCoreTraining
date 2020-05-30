@@ -25,6 +25,9 @@
                 <th>
 
                 </th>
+                <th>
+
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +39,9 @@
                     <tr>
                         <td>@course.Name</td>
                         <td>@course.Price</td>
+                        <td>
+                            @(string.Join(", ", course.StudentCourses.Select(i => i.Student.Name)))
+                        </td>
                         <td></td>
                     </tr>
                 }
@@ -62,6 +68,9 @@
                 <th>
 
                 </th>
+                <th>
+
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -72,7 +81,15 @@
                 {
                     <tr>
                         <td>@student.Name</td>
-                        <td></td>
+                        <td>
+
+                            @(string.Join(", ",student.StudentCourses.Select(i=>i.Course.Name)))
+
+
+                        </td>
+                        <td>
+                            <a asp-action="EditStudent" asp-route-id="@student.Id" class="btn btn-info">Edit</a>
+                        </td>
                     </tr>
                 }
             }
