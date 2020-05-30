@@ -24,7 +24,7 @@ namespace CourseProject.Controllers
                 .Courses
                 .Include(i => i.StudentCourses)
                 .ThenInclude(i => i.Student)
-             //   .Where(i=>i.isActive)
+                //   .Where(i=>i.isActive)
                 .ToList();
 
             //modelin student kısmı
@@ -33,8 +33,8 @@ namespace CourseProject.Controllers
                 .Students
                 .Include(i => i.StudentCourses)
                 .ThenInclude(i => i.Course)
-              //  .Where(i=>i.StudentCourses
-            //    .Any(j=>j.Course.isActive))//onaylı bir kursa dahil olmus öğrencileri getiriyoruz.
+                //  .Where(i=>i.StudentCourses
+                //    .Any(j=>j.Course.isActive))//onaylı bir kursa dahil olmus öğrencileri getiriyoruz.
                 .ToList();
             return View(model);
         }
@@ -47,12 +47,12 @@ namespace CourseProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditStudent(int id,int[] courseId)
+        public IActionResult EditStudent(int id, int[] courseId)
         {
             Student student = _context.Students.Include(s => s.StudentCourses)
                 .First(i => i.Id == id);
 
-            if (student!=null)
+            if (student != null)
             {
                 student.StudentCourses = courseId.Select(cid => new StudentCourse()
                 {
