@@ -14,6 +14,8 @@ namespace CourseProject.Models
 
         public string City { get; set; }
 
+        public string Address { get; set; }
+
         //Navigation prop
 
         public int StudentId { get; set; }
