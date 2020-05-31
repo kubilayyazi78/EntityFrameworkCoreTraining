@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp4", "ConsoleApp4\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp5", "ConsoleApp5\ConsoleApp5.csproj", "{0AD0E926-0B10-41AD-A700-1A8D07BC12D9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transactions", "Transactions", "{BCFC31D0-62BB-41EC-99DC-D1E62F1F85F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCoreTransactions", "EfCoreTransactions\EfCoreTransactions.csproj", "{26CBC2D4-5824-4577-8D19-E6C77A4A12AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,10 @@ Global
 		{0AD0E926-0B10-41AD-A700-1A8D07BC12D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AD0E926-0B10-41AD-A700-1A8D07BC12D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AD0E926-0B10-41AD-A700-1A8D07BC12D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26CBC2D4-5824-4577-8D19-E6C77A4A12AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CBC2D4-5824-4577-8D19-E6C77A4A12AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CBC2D4-5824-4577-8D19-E6C77A4A12AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CBC2D4-5824-4577-8D19-E6C77A4A12AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +47,7 @@ Global
 		{35FC8B65-C2A3-483E-AA12-D871DA2C39B2} = {8E6CCB6D-FA54-496C-B1D7-760D02D691F1}
 		{8487C2C0-722E-4AC8-BBE6-4F5D834B4943} = {5F05E579-2D30-4A75-9960-9FD0111ABAB9}
 		{0AD0E926-0B10-41AD-A700-1A8D07BC12D9} = {5F05E579-2D30-4A75-9960-9FD0111ABAB9}
+		{26CBC2D4-5824-4577-8D19-E6C77A4A12AA} = {BCFC31D0-62BB-41EC-99DC-D1E62F1F85F9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD0B0C59-BB29-4552-B6D0-61AC3744B09B}
