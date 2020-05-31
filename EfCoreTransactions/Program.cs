@@ -43,7 +43,7 @@ namespace EfCoreTransactions
                     }
 
 
-
+                    //Kurs Tamamlandı.
                 }
             }
         }
