@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleApp4.Models.CustomEf;
+using System;
+using System.Linq;
 
 namespace ConsoleApp4
 {
@@ -6,7 +8,13 @@ namespace ConsoleApp4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CustomMovieContext db = new CustomMovieContext();
+
+            foreach (var item in db.Movie.ToList())
+            {
+                Console.WriteLine(item.Name);
+            }
+            Console.ReadKey();
         }
     }
 }
